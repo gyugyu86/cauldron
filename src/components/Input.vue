@@ -19,7 +19,11 @@
           Warning!
           <i class="closeModalBtn fas fa-times" @click="showModal = false"></i>
         </h3>
+<<<<<<< HEAD
         <h5 slot="body">Please Input Data!</h5>
+=======
+        <h5 slot="body">Please Select a Converter!</h5>
+>>>>>>> upstream/master
       </Modal>
     </div>
     <p class="inputTitle">Output Result</p>
@@ -29,6 +33,12 @@
 
 <script>
 import Modal from "./common/Modal";
+<<<<<<< HEAD
+=======
+import { Converter } from './../../docs/js/converter.js';
+
+const converter = new Converter();
+>>>>>>> upstream/master
 
 export default {
   data() {
@@ -41,6 +51,7 @@ export default {
   },
   methods: {
     clickConvert() {
+<<<<<<< HEAD
       if (this.inputData !== "") {
         if (this.selected === "copy") {
           this.outputResult = this.inputData;
@@ -114,6 +125,13 @@ export default {
       } else {
         // input text areaに何も入力されない状態でボタンをクリックするとアラートを出す
         this.showModal = !this.showModal;
+=======
+      if (this.selected === "") {
+        // Alert wnen the converter is not specified
+        this.showModal = !this.showModal;
+      } else {
+        this.outputResult = converter.convert(this.selected, "" + this.inputData);
+>>>>>>> upstream/master
       }
     },
   },
